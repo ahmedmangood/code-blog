@@ -4,6 +4,7 @@ import { EyeIcon } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { Button } from './ui/button'
 
 const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
@@ -53,6 +54,9 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         <Link href={`/?query=${category.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
+        <Button asChild className="startup-card_btn">
+          <Link href={`startup/${_id}`}>Details</Link>
+        </Button>
       </div>
     </li>
   )
