@@ -9,7 +9,7 @@ import { Button } from './ui/button'
 const StartupCard = ({ post }: { post: StartupTypeCard }) => {
   const {
     _id,
-    author: { _id: authorId, name },
+    author: { _id: authorId, name, image: authorImg, bio },
     _createdAt,
     views,
     title,
@@ -38,7 +38,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
         </div>
         <Link href={`/user/${authorId}`}>
           <Image
-            src={'https://placeholder.co/48x48'}
+            src={authorImg}
             alt={'placeholdr'}
             width={48}
             height={48}

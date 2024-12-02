@@ -1,21 +1,14 @@
 import SearchForm from '@/components/SearchForm'
 import StartupCard from '@/components/StartupCard'
+import { client } from '@/sanity/lib/client'
+import { STARTUPS_QUERY } from '@/sanity/lib/queries'
 import { StartupTypeCard } from '@/types'
 
 const Home = async ({ searchParams }: { searchParams: Promise<{ query?: string }> }) => {
   const query = (await searchParams).query
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 55,
-      author: { _id: 1, name: 'Ahmed' },
-      _id: 1,
-      description: 'This is a description for the current post',
-      image: 'https://3dprintinguk.com/wp-content/uploads/2021/01/Bed-levelling.jpg',
-      title: '3D Printing',
-      category: 'Graphics',
-    },
-  ]
+
+  const posts = await client.fetch(STARTUPS_QUERY)
+
   return (
     <>
       <section className="pink_container">
