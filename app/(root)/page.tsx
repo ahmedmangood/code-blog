@@ -4,6 +4,8 @@ import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import { StartupTypeCard } from "@/types";
 
+export const runtime = "edge";
+
 const Home = async ({
   searchParams,
 }: {
