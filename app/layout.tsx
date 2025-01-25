@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "easymde/dist/easymde.min.css";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
   title: "Code Blog",
@@ -66,7 +67,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${WorkSans.className} antialiased`}>{children}</body>
+      <body className={`${WorkSans.className} antialiased`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
